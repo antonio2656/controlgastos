@@ -1,0 +1,85 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title class="ion-text-center">Nueva Obra</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Datos de la Obra</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <form (ngSubmit)="guardarObra()">
+
+        <ion-item>
+          <ion-label position="floating">Nombre de la Obra</ion-label>
+          <ion-input [(ngModel)]="obra.nombre_obra" name="nombre_obra" required></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Dirección</ion-label>
+          <ion-input [(ngModel)]="obra.direccion" name="direccion" required></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Cliente</ion-label>
+          <ion-input [(ngModel)]="obra.cliente" name="cliente"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Estatus</ion-label>
+          <ion-select [(ngModel)]="obra.estatus" name="estatus" interface="popover">
+            <ion-select-option value="Pendiente">Pendiente</ion-select-option>
+            <ion-select-option value="En Proceso">En Proceso</ion-select-option>
+            <ion-select-option value="Finalizada">Finalizada</ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item >
+          <ion-label position="stacked">Fecha Inicio</ion-label>
+          <ion-datetime
+            display-format="DD/MM/YYYY"
+            presentation="date"
+            [(ngModel)]="obra.fecha_inicio"
+            name="fecha_inicio">
+          </ion-datetime>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">Fecha Fin</ion-label>
+          <ion-datetime
+            display-format="DD/MM/YYYY"
+            presentation="date"
+            [(ngModel)]="obra.fecha_fin"
+            name="fecha_fin">
+          </ion-datetime>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Responsable</ion-label>
+          <ion-input [(ngModel)]="obra.responsable" name="responsable"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Importe Presupuesto</ion-label>
+          <ion-input type="number" [(ngModel)]="obra.importe_presupuesto" name="importe_presupuesto"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Observaciones</ion-label>
+          <ion-textarea autoGrow="true" [(ngModel)]="obra.observaciones" name="observaciones"></ion-textarea>
+        </ion-item>
+
+        <ion-button expand="block" type="submit" color="success" class="ion-margin-top">
+          <ion-icon name="save-outline" slot="start"></ion-icon>
+          Guardar Obra
+        </ion-button>
+
+      </form>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
